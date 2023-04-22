@@ -30,6 +30,7 @@ public class SimpleEncryptor {
 	 * DTO를 사용하는 암호화입니다. 암호화된 password와 salt가 dto 타입의 객체 안에 담겨 반환됩니다.
 	 * @param inserted : 사용자가 최초로 입력한 비밀번호입니다. 즉, 회원가입할 때 입력한 비밀번호입니다.
 	 * @return EncryptionDTO
+	 * @see <a href="https://github.com/psam1017/SimpleEncryptor">github 바로가기</a>
 	 */
 	public SimpleEncryptionDTO encrypt(String inserted) {
 		
@@ -48,6 +49,7 @@ public class SimpleEncryptor {
 	 * DTO를 사용하지 않고 랜덤한 salt값만을 16진수로 표현된 32글자의 String으로 반환합니다.<br>
 	 * 이 값을 encryptPassword에 전달하여 password를 암호화하십시오.
 	 * @return String
+	 * @see <a href="https://github.com/psam1017/SimpleEncryptor">github 바로가기</a>
 	 */
 	public String generateSalt(){
 		SecureRandom random = new SecureRandom();
@@ -61,6 +63,7 @@ public class SimpleEncryptor {
 	 * @param password : 사용자가 최초로 입력한 비밀번호입니다. 즉, 회원가입할 때 입력한 비밀번호입니다.
 	 * @param salt : 서버에서 생성한 난수입니다. generateSalt() 메소드를 사용하여 난수를 생성하십시오.
 	 * @return String
+	 * @see <a href="https://github.com/psam1017/SimpleEncryptor">github 바로가기</a>
 	 */
 	public String encryptPassword(String password, String salt){
 		try {
@@ -80,8 +83,8 @@ public class SimpleEncryptor {
 	 * @param inserted : 사용자가 인증을 위해 입력한 비밀번호입니다. 즉, 로그인할 때 입력한 비밀번호입니다.
 	 * @param stored : DB에 저장된 비밀번호입니다.
 	 * @param salt : DB에 저장된 솔트입니다.
-	 * @return boolean
-	 * @see 만약 값 중에 null이 있다면 false를 반환할 것입니다.
+	 * @return boolean : 만약 값 중에 null이 있다면 false를 반환할 것입니다.
+	 * @see <a href="https://github.com/psam1017/SimpleEncryptor">github 바로가기</a>
 	 */
 	public boolean compare(String inserted, String stored, String salt){
 		try {
@@ -104,8 +107,8 @@ public class SimpleEncryptor {
 	 * DTO를 사용하여 입력 받은 비밀번호와 비교합니다. DB에서 비밀번호와 솔트를 DTO로 가져왔다면 이 메소드를 사용하십시오.
 	 * @param inserted : 사용자가 인증을 위해 입력한 비밀번호입니다. 즉, 로그인할 때 입력한 비밀번호입니다.
 	 * @param info : DB에서 가져온 비밀번호와 솔트를 가지고 있는 DTO입니다.
-	 * @return boolean
-	 * @see 만약 값 중에 null이 있다면 false를 반환할 것입니다.
+	 * @return boolean : 만약 값 중에 null이 있다면 false를 반환할 것입니다.
+	 * @see <a href="https://github.com/psam1017/SimpleEncryptor">github 바로가기</a>
 	 */
 	public boolean compare(String inserted, SimpleEncryptionDTO info){
 		try {
